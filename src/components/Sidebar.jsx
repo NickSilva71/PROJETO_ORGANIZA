@@ -9,8 +9,8 @@ import Link from "next/link";
 
 export default function Sidebar() {
   const menuItems = [
-    { href: "/dashboard", icon: <FaChartLine />, label: "Dashboard" },
-    { href: "/receitas-despesas", icon: <FaWallet />, label: "Receitas & Despesas",},
+    { href: "/painel_principal", icon: <FaChartLine />, label: "Painel Principal" },
+    { href: "/receitas", icon: <FaWallet />, label: "Receitas e Despesas",},
     { href: "/orcamento", icon: <FaClipboardList />, label: "Orçamento" },
     { href: "/investimentos", icon: <FaDollarSign />, label: "Investimentos" },
     { href: "/notificacoes", icon: <FaBell />, label: "Notificações" },
