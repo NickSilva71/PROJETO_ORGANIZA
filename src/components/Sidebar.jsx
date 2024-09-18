@@ -13,29 +13,28 @@ export default function Sidebar() {
   return (
     <Flex
       as="nav"
-      flexDirection={{ base: "row", md: "column" }}
+      pos="fixed"
+      direction={{ base: "row", md: "column" }}
       bg="teal.600"
       color="white"
-      pos="fixed"
-      bottom={{ base: 0, md: "unset" }}
-      w={{ base: "full", md: "12rem" }}
-      h={{ base: "auto", md: "100vh" }}
+      bottom={0}
+      w={{ base: "full", md: 48 }}
+      h={{ base: "auto", md: "full" }}
       p={4}
       justify={{ base: "space-between", md: "flex-start" }}
-      align="stretch"
+      shadow="dark-lg"
     >
       {menuItems.map((item, index) => (
         <Link
           href={item.href}
           key={index}
-          _hover={{ textDecoration: "none", bg: "teal.700" }}
+          _hover={{bg: "teal.700" }}
           p={3}
           borderRadius="md"
           display="flex"
           alignItems="center"
-          flexDirection={{ base: "column", md: "row" }}
         >
-          <Icon as={item.icon} boxSize={5} />
+          <Icon as={item.icon} boxSize={6} />
           <Text display={{ base: "none", md: "inline" }} ml={3} fontSize="sm">
             {item.label}
           </Text>
