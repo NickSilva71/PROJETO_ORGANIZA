@@ -1,7 +1,16 @@
 import Sidebar from "@/components/Sidebar";
 import CriarInvestimento from "@/components/CriarInvestimento";
 import { useState } from "react";
-import { FaPlus, FaMoon, FaSun } from "react-icons/fa";
+import {
+  FaPlus,
+  FaMoon,
+  FaSun,
+  FaMoneyBill,
+  FaBuilding,
+  FaPercentage,
+  FaRegClock,
+  FaWallet
+} from "react-icons/fa";
 import {
   Flex,
   SimpleGrid,
@@ -17,6 +26,7 @@ import {
   useDisclosure,
   useColorMode,
   Button,
+  Text
 } from "@chakra-ui/react";
 
 export default function Investimentos() {
@@ -44,6 +54,7 @@ export default function Investimentos() {
       tempo: 2,
     },
   ]);
+  
   const calcularRetorno = (valor, juros, anos) => {
     return valor * Math.pow(1 + juros / 100, anos);
   };
@@ -101,19 +112,50 @@ export default function Investimentos() {
               boxShadow="lg"
               variant="outline"
             >
-              <Heading size="base">{investimento.tipo}</Heading>
-              <p>
-                Valor:
-                {" " + investimento.valor.toLocaleString("pt-BR", {style: "currency",currency: "BRL",})}
-              </p>
-              <p>Instituição: {investimento.instituicao}</p>
-              <p>Juros: {investimento.juros}%</p>
-              <p>Tempo: {investimento.tempo} anos</p>
-              <p>
-                <b>Retorno Estimado</b>:
-                {" " + calcularRetorno(investimento.valor, investimento.juros, investimento.tempo,)
-                .toLocaleString("pt-BR", {style: "currency",currency: "BRL",})}
-              </p>
+              <Heading size="base" mb={4}>
+                <Flex align="center">
+                  <FaWallet color="gray.300" />
+                  <Text ml={2}>{investimento.tipo}</Text>
+                </Flex>
+              </Heading>
+              <Flex direction="column" gap={2}>
+                <Flex align="center">
+                  <FaMoneyBill color="gray.300" />
+                  <Text ml={2}>
+                    Valor: {investimento.valor.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </Text>
+                </Flex>
+                <Flex align="center">
+                  <FaBuilding color="gray.300" />
+                  <Text ml={2}>Instituição: {investimento.instituicao}</Text>
+                </Flex>
+                <Flex align="center">
+                  <FaPercentage color="gray.300" />
+                  <Text ml={2}>Juros: {investimento.juros}%</Text>
+                </Flex>
+                <Flex align="center">
+                  <FaRegClock color="gray.300" />
+                  <Text ml={2}>Tempo: {investimento.tempo} anos</Text>
+                </Flex>
+                <Flex align="center">
+                  <FaMoneyBill color="gray.300" />
+                  <Text ml={2}>
+                    <strong>
+                      {calcularRetorno(
+                        investimento.valor,
+                        investimento.juros,
+                        investimento.tempo,
+                      ).toLocaleString("pt-BR", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </strong>
+                  </Text>
+                </Flex>
+              </Flex>
             </Card>
           ))}
         </SimpleGrid>
