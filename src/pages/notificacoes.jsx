@@ -9,7 +9,7 @@ import {
   Text
 } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
-import Sidebar from "@/components/sidebar";
+import Sidebar from "@/components/Sidebar";
 import BoletoNotification from "@/components/Boleto";
 import InvestimentoNotificacion from "@/components/Investimento";
 
