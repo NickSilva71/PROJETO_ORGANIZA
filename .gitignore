@@ -1,0 +1,5 @@
+# Impede que pastas desnecessárias sejam upadas no github
+# cache node
+node_modules
+# cache next
+.next

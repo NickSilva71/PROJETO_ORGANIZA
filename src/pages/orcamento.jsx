@@ -15,7 +15,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Bar } from "react-chartjs-2";
-import Sidebar from "@/components/sidebar";
+import Sidebar from "@/components/Sidebar";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -47,7 +47,11 @@ export default function Orcamento() {
     if (newCategory && newBudget && newActual) {
       setBudgetData([
         ...budgetData,
-        { category: newCategory, budget: parseFloat(newBudget), actual: parseFloat(newActual) },
+        {
+          category: newCategory,
+          budget: parseFloat(newBudget),
+          actual: parseFloat(newActual),
+        },
       ]);
       setNewCategory("");
       setNewBudget("");
@@ -145,17 +149,16 @@ export default function Orcamento() {
               onChange={(e) => setNewActual(e.target.value)}
               bg={inputBg}
             />
-           <Button
-  colorScheme="teal"
-  onClick={addCategory}
-  size="md"
-  px={8} 
-  isTruncated
-  textAlign="center"
->
-  Adicionar
-</Button>
-
+            <Button
+              colorScheme="teal"
+              onClick={addCategory}
+              size="md"
+              px={8}
+              isTruncated
+              textAlign="center"
+            >
+              Adicionar
+            </Button>
           </Flex>
         </Box>
 
