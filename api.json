@@ -1,0 +1,29 @@
+{
+    "dadosUsuarios": [
+      {
+        "id": 1,
+        "name": "Usuário 1",
+        "price": 100,
+        "description": "Usuário 1 description"
+      
+      },
+      {
+        "id": 2,
+        "name": "Usuário 2",
+        "price": 200,
+        "description": "Usuário 2 description"
+      },
+      {
+        "id": 3,
+        "name": "Usuário 3",
+        "price": 300,
+        "description": "Usuário 3 description"
+      },
+      {
+        "id": 4,
+        "name": "Usuário 4",
+        "price": 400,
+        "description": "Usuário 4 description"
+      }
+    ]
+  }

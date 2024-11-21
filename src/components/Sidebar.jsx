@@ -1,47 +1,45 @@
-import {
-  FaChartLine,
-  FaWallet,
-  FaClipboardList,
-  FaDollarSign,
-  FaBell,
-} from "react-icons/fa";
-import Link from "next/link";
+import { FaChartLine, FaWallet, FaClipboardList, FaDollarSign, FaBell } from "react-icons/fa";
+import { Flex, Link, Icon, Text } from "@chakra-ui/react";
 
 export default function Sidebar() {
   const menuItems = [
-    { href: "/painel_principal", icon: <FaChartLine />, label: "Painel Principal" },
-    { href: "/receitas", icon: <FaWallet />, label: "Receitas e Despesas",},
-    { href: "/orcamento", icon: <FaClipboardList />, label: "Orçamento" },
-    { href: "/investimentos", icon: <FaDollarSign />, label: "Investimentos" },
-    { href: "/notificacoes", icon: <FaBell />, label: "Notificações" },
+    { href: "/painel_principal",  icon: FaChartLine,      label: "Painel Principal"     },
+    { href: "/receitas",          icon: FaWallet,         label: "Receitas e Despesas"  },
+    { href: "/orcamento",         icon: FaClipboardList,  label: "Orçamento"            },
+    { href: "/investimentos",     icon: FaDollarSign,     label: "Investimentos"        },
+    { href: "/notificacoes",      icon: FaBell,           label: "Notificações"         },
   ];
 
   return (
-    <div
-      className="
-        bg-teal-600 text-white
-        flex fixed bottom-0 w-full
-        flex-row        md:flex-col 
-        justify-between md:justify-normal 
-        p-2             md:px-2 md:py-6 md:gap-1
-                        md:h-screen md:w-48
-      "
+    <Flex
+      as="nav"
+      pos="fixed"
+      direction={{ base: "row", md: "column" }}
+      bg="teal.600"
+      color="white"
+      bottom={0}
+      w={{ base: "full", md: 48 }}
+      h={{ base: "auto", md: "full" }}
+      p={4}
+      justify={{ base: "space-between", md: "flex-start" }}
+      shadow="dark-lg"
     >
       {menuItems.map((item, index) => (
         <Link
           href={item.href}
           key={index}
-          className="
-            flex p-2 rounded-lg items-center
-            flex-col       md:flex-row md:gap-2
-            justify-center md:justify-normal
-            hover:bg-teal-950 
-          "
+          _hover={{bg: "teal.700" }}
+          p={3}
+          borderRadius="md"
+          display="flex"
+          alignItems="center"
         >
-          {item.icon}
-          <span className="text-xs mt-1 hidden md:block">{item.label}</span>
+          <Icon as={item.icon} boxSize={6} />
+          <Text display={{ base: "none", md: "inline" }} ml={3} fontSize="sm">
+            {item.label}
+          </Text>
         </Link>
       ))}
-    </div>
+    </Flex>
   );
 }

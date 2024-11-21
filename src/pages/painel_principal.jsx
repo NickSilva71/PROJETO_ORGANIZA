@@ -1,16 +1,38 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import {
+  Box,
+  Heading,
+  Button,
+  Flex,
+  useColorMode,
+  useColorModeValue,
+  VStack,
+  Text
+} from "@chakra-ui/react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import Sidebar from "@/components/sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export default function PainelPrincipal() {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
-  <div>
-    <Sidebar />
-    <div className="flex flex-col font-medium text-2xl text-center p-6 max-w-fit m-auto border-r-2 border-b-2 border-teal-600 bg-teal-100 rounded-xl shadow-lg">
-      <h1>Painel Principal</h1>
-    </div>
-  </div>
+    <Flex>
+    <Flex
+      direction="column"
+      p={6}
+      ml={{ base: 0, md: "200px" }}
+      mb={{ base: "80px", md: 0 }}
+      gap={6}
+      w="100%"
+    >
+      <Flex justifyContent="space-between" alignItems="center" mb={6}>
+        <Heading as="h1">Painel Principal</Heading>
+        <Button onClick={toggleColorMode}>
+          {colorMode === "light" ? <FaMoon /> : <FaSun />}
+        </Button>
+    </Flex>
+    </Flex>
+    <Sidebar/>
+    </Flex>
   );
 }
