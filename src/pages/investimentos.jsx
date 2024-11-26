@@ -1,86 +1,98 @@
+import { FaPlus, FaMoon, FaSun, FaMoneyBill, FaBuilding, FaPercentage, FaRegClock, FaWallet, FaExclamationTriangle, FaRegMeh } from "react-icons/fa";
+import { Flex, SimpleGrid, Card, IconButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Heading, useDisclosure, useColorMode, Button, Text, useColorModeValue, useToast } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "@/components/Sidebar";
-import CriarInvestimento from "@/components/CriarInvestimento";
-import { useState } from "react";
-import {
-  FaPlus,
-  FaMoon,
-  FaSun,
-  FaMoneyBill,
-  FaBuilding,
-  FaPercentage,
-  FaRegClock,
-  FaWallet
-} from "react-icons/fa";
-import {
-  Flex,
-  SimpleGrid,
-  Card,
-  IconButton,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  Heading,
-  useDisclosure,
-  useColorMode,
-  Button,
-  Text
-} from "@chakra-ui/react";
+import CriarInvestimento from "@/components/investimentos/CriarInvestimento";
 
 export default function Investimentos() {
-  // Investimento e Calculo
-  const [investimentos, setInvestimentos] = useState([
-    {
-      tipo: "Poupança",
-      valor: 1000,
-      instituicao: "Banco do Brasil",
-      juros: 1.5,
-      tempo: 2,
-    },
-    {
-      tipo: "Fundos Imobiliários",
-      valor: 50000,
-      instituicao: "ImobiCorp",
-      juros: 3,
-      tempo: 3,
-    },
-    {
-      tipo: "Tesouro Direto",
-      valor: 5000,
-      instituicao: "CDB Itau",
-      juros: 2.5,
-      tempo: 2,
-    },
-  ]);
-  
+  const [investimentos, setInvestimentos] = useState([]);
+
+  const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const toast = useToast();
+
+  // ID do usuário autenticado (simulação)
+  const userId = "1";
+
+  async function fetchInvestimentos() {
+    try {
+      const response = await fetch(`http://localhost:8000/investments?userId=${userId}`);
+      if (!response.ok) {
+        throw new Error("Erro ao buscar investimentos");
+      }
+
+      const data = await response.json();
+      setInvestimentos(data);
+
+    } catch (error) {
+      toast({
+        title: "Erro ao conectar com o servidor.",
+        description: `Verifique se você está conectado`,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        icon: <FaExclamationTriangle size="Big" color="yellow" />
+      });
+    }
+  }
+
+  async function handleInvestimento(dadosInvestimento) {
+    try {
+      const novoInvestimento = { ...dadosInvestimento, userId };
+
+      const response = await fetch("http://localhost:8000/investments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(novoInvestimento),
+      });
+
+      if (response.ok) {
+          throw new Error("Erro ao Criar Investimento");
+      }
+
+      const data = await response.json();
+      setInvestimentos((prevInvestimentos) => [...prevInvestimentos, data]);
+
+      toast({
+        title: "Investimento criado com sucesso!",
+        description: "Ele deve aparecer na sua tela.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        icon: <FaRegLaugh size="Big" />
+      })
+
+      // isso tá mostrando erro mas, é por causa de outras coisas.
+      // tá funcionando.
+    } catch (error) {
+      // toast({
+      //   title: "Erro ao conectar com servidor.",
+      //   description: `Verifique se você está conectado`,
+      //   status: "error",
+      //   duration: 3000,
+      //   isClosable: true,
+      //   icon: <FaExclamationTriangle size="Big" color="yellow" />
+      // });
+
+    } finally {
+      onClose();
+    }
+  };
+
+  useEffect(() => { fetchInvestimentos() }, []);
+
   const calcularRetorno = (valor, juros, anos) => {
     return valor * Math.pow(1 + juros / 100, anos);
   };
 
-  // Modo Escuro
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  // Modal
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleInvestimento = (dadosInvestimento) => {
-    setInvestimentos([...investimentos, dadosInvestimento]);
-    onClose();
-  };
-
+  const backgroundColor = useColorModeValue('white', 'gray.700');
   return (
     <Flex>
-      <Flex
-        direction="column"
-        p={6}
-        ml={{ base: 0, md: "200px" }}
-        mb={{ base: "80px", md: 0 }}
-        gap={6}
-        w="100%"
-      >
+      <Flex direction="column" p={6} ml={{ base: 0, md: "200px" }} mb={{ base: "80px", md: 0 }} gap={6} w="100%">
+
         {/* Titulo e Modo Escuro */}
-        <Flex justifyContent="space-between" alignItems="center" mb={6}>
+        <Flex justifyContent="space-between" align="center" mb={6}>
           <Heading as="h1">Investimentos</Heading>
 
           <Button onClick={toggleColorMode}>
@@ -102,32 +114,23 @@ export default function Investimentos() {
           />
 
           {/* Cards de investimentos */}
-          {investimentos.map((investimento, index) => (
-            <Card
-              key={index}
-              p={4}
-              borderWidth={2}
-              borderColor="gray.300"
-              borderRadius="lg"
-              boxShadow="lg"
-              variant="outline"
-            >
+          {investimentos.map((investimento) => (
+            <Card bg={backgroundColor} key={investimento.id} p={4} borderColor="gray.300" borderRadius="lg" boxShadow="lg">
               <Heading size="base" mb={4}>
                 <Flex align="center">
                   <FaWallet color="gray.300" />
                   <Text ml={2}>{investimento.tipo}</Text>
                 </Flex>
               </Heading>
+
               <Flex direction="column" gap={2}>
                 <Flex align="center">
                   <FaMoneyBill color="gray.300" />
                   <Text ml={2}>
-                    Valor: {investimento.valor.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
+                    Valor: {investimento.valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                   </Text>
                 </Flex>
+
                 <Flex align="center">
                   <FaBuilding color="gray.300" />
                   <Text ml={2}>Instituição: {investimento.instituicao}</Text>
@@ -144,14 +147,8 @@ export default function Investimentos() {
                   <FaMoneyBill color="gray.300" />
                   <Text ml={2}>
                     <strong>
-                      {calcularRetorno(
-                        investimento.valor,
-                        investimento.juros,
-                        investimento.tempo,
-                      ).toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
+                      {calcularRetorno(investimento.valor, investimento.juros, investimento.tempo)
+                      .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                     </strong>
                   </Text>
                 </Flex>

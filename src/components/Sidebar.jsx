@@ -1,5 +1,5 @@
 import { FaChartLine, FaWallet, FaClipboardList, FaDollarSign, FaBell } from "react-icons/fa";
-import { Flex, Link, Icon, Text } from "@chakra-ui/react";
+import { Flex, Link, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 
 export default function Sidebar() {
   const menuItems = [
@@ -15,7 +15,7 @@ export default function Sidebar() {
       as="nav"
       pos="fixed"
       direction={{ base: "row", md: "column" }}
-      bg="teal.600"
+      bg={useColorModeValue("teal", "teal.700")}
       color="white"
       bottom={0}
       w={{ base: "full", md: 48 }}
@@ -28,7 +28,7 @@ export default function Sidebar() {
         <Link
           href={item.href}
           key={index}
-          _hover={{bg: "teal.700" }}
+          _hover={{bg: useColorModeValue("teal.700", "teal.900") }}
           p={3}
           borderRadius="md"
           display="flex"

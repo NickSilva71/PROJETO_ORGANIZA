@@ -1,25 +1,158 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "name": "Rei do capa",
+      "email": "reidocapa663@outlook.com",
+      "password": "12345678"
+    },
+    {
+      "id": "2",
+      "name": "Shaolin matador de porco",
+      "email": "shaolinmatadordeporco27@gmail.com",
+      "password": "01234567"
+    }
+  ],
+  "investments": [
+    {
+      "id": "1",
+      "tipo": "Ações",
+      "valor": 5000,
+      "instituicao": "XP Investimentos",
+      "juros": 15,
+      "tempo": 2,
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "tipo": "CDB",
+      "valor": 3000,
+      "instituicao": "Banco do Brasil",
+      "juros": 11,
+      "tempo": 3,
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "tipo": "Poupança",
+      "valor": 1000,
+      "instituicao": "Banco do Brasil",
+      "juros": 3,
+      "tempo": 4.5,
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "tipo": "Fundos Imobiliários",
+      "valor": 1000,
+      "instituicao": "ImobiCorp",
+      "juros": 14.8,
+      "tempo": 3,
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "tipo": "Tesouro Direto",
+      "valor": 2000,
+      "instituicao": "CDB Itau",
+      "juros": 7,
+      "tempo": 10,
+      "userId": "2"
+    },
+    {
+      "id": "62f6",
+      "tipo": "qualquer coisa",
+      "valor": 32,
+      "instituicao": "32",
+      "juros": 221,
+      "tempo": 2,
+      "userId": "1"
+    },
+    {
+      "id": "a5a7",
+      "tipo": "qualquer coisa",
+      "valor": 213,
+      "instituicao": "32",
+      "juros": 23,
+      "tempo": 32,
+      "userId": "1"
+    },
+    {
+      "id": "3919",
+      "tipo": "qualquer coisa",
+      "valor": 21,
+      "instituicao": "21",
+      "juros": 21,
+      "tempo": 21,
+      "userId": "1"
+    },
+    {
+      "id": "443e",
+      "tipo": "32",
+      "valor": 4,
+      "instituicao": "3",
+      "juros": 34,
+      "tempo": 43,
+      "userId": "1"
+    },
+    {
+      "id": "8440",
+      "tipo": "23",
+      "valor": 42,
+      "instituicao": "42",
+      "juros": 42,
+      "tempo": 42,
+      "userId": "1"
+    },
+    {
+      "id": "060d",
+      "tipo": "qualquer coisa",
+      "valor": 32,
+      "instituicao": "4",
+      "juros": 34,
+      "tempo": 43,
+      "userId": "1"
+    },
+    {
+      "id": "a21a",
+      "tipo": "43",
+      "valor": 432,
+      "instituicao": "432",
+      "juros": 432,
+      "tempo": 432,
+      "userId": "1"
+    },
+    {
+      "id": "6fe5",
+      "tipo": "789",
+      "valor": 34,
+      "instituicao": "32",
+      "juros": 3,
+      "tempo": 43,
+      "userId": "1"
+    }
+  ],
   "dadosUsuarios": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Usuário 1",
       "price": 100,
       "description": "Usuário 1 description"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Usuário 2",
       "price": 200,
       "description": "Usuário 2 description"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Usuário 3",
       "price": 300,
       "description": "Usuário 3 description"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Usuário 4",
       "price": 400,
       "description": "Usuário 4 description"
