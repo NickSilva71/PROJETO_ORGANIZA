@@ -107,14 +107,8 @@ export default function RecuperarSenha() {
         <Box rounded="lg" bg={useColorModeValue('white', 'gray.700')} boxShadow="lg" p={8}>
           <Stack spacing={4}>
             <FormControl id="email">
-              <FormLabel display="flex" justifyContent="space-between">
-                <Flex display="inline-flex" align="center" gap={2}>
+              <FormLabel display="flex" align="center" gap={2}>
                   <FaRegUserCircle /> Qual o seu email?
-                </Flex>
-
-                <Button onClick={toggleColorMode}>
-                  {colorMode === "light" ? <FaMoon /> : <FaSun />}
-                </Button>
               </FormLabel>
               <Input
                 type="email"
