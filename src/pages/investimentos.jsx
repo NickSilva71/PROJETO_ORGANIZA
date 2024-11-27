@@ -3,8 +3,9 @@ import { Flex, SimpleGrid, Card, IconButton, Modal, ModalOverlay, ModalContent, 
 import React, { useEffect, useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import CriarInvestimento from "@/components/investimentos/CriarInvestimento";
+import VerificarAutenticacao from "@/components/VerificarAutenticacao";
 
-export default function Investimentos() {
+function Investimentos() {
   const [investimentos, setInvestimentos] = useState([]);
 
   const { colorMode, toggleColorMode } = useColorMode();
@@ -12,8 +13,7 @@ export default function Investimentos() {
 
   const toast = useToast();
 
-  // ID do usuário autenticado (simulação)
-  const userId = "1";
+  const userId = localStorage.getItem("token");
 
   async function fetchInvestimentos() {
     try {
@@ -27,7 +27,7 @@ export default function Investimentos() {
 
     } catch (error) {
       toast({
-        title: "Erro ao conectar com o servidor.",
+        title: `${error}` || "Erro ao conectar com o servidor.",
         description: `Verifique se você está conectado`,
         status: "error",
         duration: 3000,
@@ -47,8 +47,8 @@ export default function Investimentos() {
         body: JSON.stringify(novoInvestimento),
       });
 
-      if (response.ok) {
-          throw new Error("Erro ao Criar Investimento");
+      if (!response.ok) {
+        throw new Error("Erro ao Criar Investimento");
       }
 
       const data = await response.json();
@@ -59,21 +59,20 @@ export default function Investimentos() {
         description: "Ele deve aparecer na sua tela.",
         status: "success",
         duration: 3000,
-        isClosable: true,
-        icon: <FaRegLaugh size="Big" />
+        isClosable: true
       })
 
       // isso tá mostrando erro mas, é por causa de outras coisas.
       // tá funcionando.
     } catch (error) {
-      // toast({
-      //   title: "Erro ao conectar com servidor.",
-      //   description: `Verifique se você está conectado`,
-      //   status: "error",
-      //   duration: 3000,
-      //   isClosable: true,
-      //   icon: <FaExclamationTriangle size="Big" color="yellow" />
-      // });
+      toast({
+        title: "Erro ao conectar com servidor.",
+        description: `${error}` || "Verifique se você está conectado",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+        icon: <FaExclamationTriangle size="Big" color="yellow" />
+      });
 
     } finally {
       onClose();
@@ -148,7 +147,7 @@ export default function Investimentos() {
                   <Text ml={2}>
                     <strong>
                       {calcularRetorno(investimento.valor, investimento.juros, investimento.tempo)
-                      .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                        .toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                     </strong>
                   </Text>
                 </Flex>
@@ -175,3 +174,5 @@ export default function Investimentos() {
     </Flex>
   );
 }
+
+export default VerificarAutenticacao(Investimentos);

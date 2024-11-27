@@ -7,10 +7,10 @@ export default function TopBar({ links }) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box position="absolute" top={0} w="100%" shadow="md" bg={useColorModeValue('white', 'gray.700')}>
-      <Flex h={16} align="center" justifyContent="space-between">
+    <Flex position="absolute" top={0} w="100vw" shadow="md" bg={useColorModeValue('white', 'gray.700')} h={16} align="center" justifyContent="space-between">
+
         <Link href="/">
-          <Box fontSize="xl" fontWeight="bold" p={4} ml={4}>
+          <Box fontSize="xl" fontWeight="bold" p={2} ml={4}>
             ORGANIZA
           </Box>
         </Link>
@@ -34,7 +34,6 @@ export default function TopBar({ links }) {
           </Button>
         </Flex>
 
-      </Flex>
-    </Box>
+    </Flex>
   );
 }

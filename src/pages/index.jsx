@@ -1,6 +1,5 @@
 import { Box, Button, Container, Flex, Heading, Image as ChakraImage, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import React from "react";
-import Image from 'next/image'
 import TopBar from '@/components/TopBar';
 import Link from 'next/link';
 
@@ -79,14 +78,7 @@ export default function Home() {
 }
 
 const FeatureCard = ({ title, description, icon }) => (
-  <Box
-    p={6}
-    bg={useColorModeValue('gray.100', 'gray.700')}
-    rounded="lg"
-    shadow="md"
-    textAlign="center"
-    w={{ base: '100%', md: '30%' }}
-  >
+  <Box p={6} bg={useColorModeValue('gray.100', 'gray.700')} rounded="lg" shadow="md" textAlign="center" w={{ base: '100%', md: '30%' }}>
     <Text fontSize="4xl" mb={4}>
       {icon}
     </Text>

@@ -138,7 +138,7 @@ export default function Cadastro() {
 
 
   return (
-    <Flex minH="100vh" minW="100vw" align="center" justify="center" bg={useColorModeValue('gray.50', 'gray.800')}>
+    <Flex minH="100vh" minW="100vw" pt={10} align="center" justify="center" bg={useColorModeValue('gray.50', 'gray.800')}>
       <TopBar links={links} />
       <Stack spacing={8} mx="auto" maxW="lg" py={10} px={4}>
 
