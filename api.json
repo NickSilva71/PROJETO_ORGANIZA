@@ -1,25 +1,128 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "name": "Rei do capa",
+      "email": "reidocapa663@outlook.com",
+      "password": "12345678"
+    },
+    {
+      "id": "2",
+      "name": "Shaolin matador de porco",
+      "email": "shaolinmatadordeporco27@gmail.com",
+      "password": "01234567"
+    },
+    {
+      "id": "9eb4",
+      "name": "José Cicrano da Silva",
+      "email": "exemplo@enterprise.com",
+      "password": "12345678"
+    }
+  ],
+  "investments": [
+    {
+      "id": "1",
+      "tipo": "Ações",
+      "valor": 5000,
+      "instituicao": "XP Investimentos",
+      "juros": 15,
+      "tempo": 2,
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "tipo": "CDB",
+      "valor": 3000,
+      "instituicao": "Banco do Brasil",
+      "juros": 11,
+      "tempo": 3,
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "tipo": "Poupança",
+      "valor": 1000,
+      "instituicao": "Banco do Brasil",
+      "juros": 3,
+      "tempo": 4.5,
+      "userId": "2"
+    },
+    {
+      "id": "4",
+      "tipo": "Fundos Imobiliários",
+      "valor": 1000,
+      "instituicao": "ImobiCorp",
+      "juros": 14.8,
+      "tempo": 3,
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "tipo": "Tesouro Direto",
+      "valor": 2000,
+      "instituicao": "CDB Itau",
+      "juros": 7,
+      "tempo": 10,
+      "userId": "2"
+    },
+    {
+      "id": "7651",
+      "tipo": "qualquer coisa",
+      "valor": 323,
+      "instituicao": "itau",
+      "juros": 12,
+      "tempo": 5,
+      "userId": "1"
+    },
+    {
+      "id": "15b8",
+      "tipo": "somalia",
+      "valor": 2314,
+      "instituicao": "fedez",
+      "juros": 15,
+      "tempo": 5,
+      "userId": "1"
+    },
+    {
+      "id": "7439",
+      "tipo": "Tesouro Direto",
+      "valor": 3000,
+      "instituicao": "Tesouro Nacional",
+      "juros": 9,
+      "tempo": 5,
+      "userId": "9eb4"
+    },
+    {
+      "id": "0661",
+      "tipo": "Fundos Imobiliários",
+      "valor": 10000,
+      "instituicao": "Itaú Investimentos",
+      "juros": 8,
+      "tempo": 3,
+      "userId": "9eb4"
+    }
+  ],
   "dadosUsuarios": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Usuário 1",
       "price": 100,
       "description": "Usuário 1 description"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Usuário 2",
       "price": 200,
       "description": "Usuário 2 description"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Usuário 3",
       "price": 300,
       "description": "Usuário 3 description"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Usuário 4",
       "price": 400,
       "description": "Usuário 4 description"

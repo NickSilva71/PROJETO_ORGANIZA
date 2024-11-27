@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import Sidebar from "@/components/Sidebar";
-import BoletoNotification from "@/components/Boleto";
-import InvestimentoNotificacion from "@/components/Investimento";
+import BoletoNotification from "@/components/notificacao/Boleto";
+import InvestimentoNotificacion from "@/components/notificacao/Investimento";
 
 export const getStaticProps = async () => {
   const response = await fetch("http://localhost:8000/dadosUsuarios");
@@ -41,7 +41,7 @@ const Notificacoes = (props) => {
         gap={6}
         w="100%"
       >
-        <Flex justifyContent="space-between" alignItems="center" mb={6}>
+        <Flex justifyContent="space-between" align="center" mb={6}>
           <Heading as="h1">Notificações</Heading>
           <Button onClick={toggleColorMode}>
             {colorMode === "light" ? <FaMoon /> : <FaSun />}

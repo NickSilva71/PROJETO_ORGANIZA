@@ -25,7 +25,7 @@ export default function PainelPrincipal() {
       gap={6}
       w="100%"
     >
-      <Flex justifyContent="space-between" alignItems="center" mb={6}>
+      <Flex justifyContent="space-between" align="center" mb={6}>
         <Heading as="h1">Painel Principal</Heading>
         <Button onClick={toggleColorMode}>
           {colorMode === "light" ? <FaMoon /> : <FaSun />}
