@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Flex, SimpleGrid, Heading, Button, useDisclosure, useColorMode, useToast, IconButton } from "@chakra-ui/react";
 import { FaMoon, FaSun, FaExclamationTriangle, FaPlus } from "react-icons/fa";
 import Sidebar from "@/components/Sidebar";
+
 import ModalCriarNotificacao from "@/components/notificacao/ModalCriarNotificacao";
 import CardNotificacao from "@/components/notificacao/CardNotificacao";
 import VerificarAutenticacao from "@/components/VerificarAutenticacao";

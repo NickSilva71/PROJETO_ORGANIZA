@@ -111,33 +111,79 @@
       "description": "amanhã",
       "date": "29/11/2024",
       "value": "1000000000000",
+    },
+    {
+      "id": "0661",
+      "tipo": "Fundos Imobiliários",
+      "valor": 10000,
+      "instituicao": "Itaú Investimentos",
+      "juros": 8,
+      "tempo": 3,
+      "userId": "9eb4"
+    },
+    {
+      "id": "5150",
+      "tipo": "Bitcoin",
+      "valor": 900,
+      "instituicao": "Banco do Brasil",
+      "juros": 2,
+      "tempo": 4,
+    },
+    {
+      "id": "6493",
+      "name": "Transferência para Poupança",
+      "description": "Transferir 10% do salário para a conta poupança",
+      "date": "04/12/2024",
+      "value": 500,
+      "userId": "9eb4"
+    },
+    {
+      "id": "3d20",
+      "name": "Pagar Cartão de Crédito",
+      "description": "Efetuar o pagamento da fatura do cartão de crédito do Banco",
+      "date": "07/12/2024",
+      "value": "1200.78",
+      "userId": "9eb4"
+    },
+    {
+      "id": "6fd4",
+      "name": "Pagar Cartão de Crédito",
+      "description": "pagamento",
+      "date": "28/11/2024",
+      "value": "1200.78",
+      "userId": "9eb4"
+    },
+    {
+      "id": "d01a",
+      "name": "Pagar Conta de Energia",
+      "description": "Efetuar o pagamento da fatura de energia elétrica de novembro.",
+      "date": "05/12/2024",
+      "value": "350.45",
       "userId": "1"
-    }
-  ],
-  "dadosUsuarios": [
-    {
-      "id": "1",
-      "name": "Usuário 1",
-      "price": 100,
-      "description": "Usuário 1 description"
     },
     {
-      "id": "2",
-      "name": "Usuário 2",
-      "price": 200,
-      "description": "Usuário 2 description"
+      "id": "f05b",
+      "name": "Pagamento de Empréstimo Pessoal",
+      "description": "Efetuar o pagamento da parcela do empréstimo pessoal com o Banco.",
+      "date": "10/12/2024",
+      "value": "450.00",
+      "userId": "1"
     },
     {
-      "id": "3",
-      "name": "Usuário 3",
-      "price": 300,
-      "description": "Usuário 3 description"
+      "id": "e07g",
+      "name": "Plano de Saúde",
+      "description": "Pagamento da mensalidade do plano de saúde familiar.",
+      "date": "20/12/2024",
+      "value": "350.00",
+      "userId": "2"
     },
     {
-      "id": "4",
-      "name": "Usuário 4",
-      "price": 400,
-      "description": "Usuário 4 description"
+      "id": "b06f",
+      "name": "Internet e TV a Cabo",
+      "description": "Pagamento mensal pela assinatura de internet e TV a cabo.",
+      "date": "10/12/2024",
+      "value": "150.75",
+      "userId": "2"
     }
   ]
 }
