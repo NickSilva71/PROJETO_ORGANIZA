@@ -45,7 +45,7 @@ const Dashboard = () => {
       <Sidebar />
       <Flex direction="column" p={6} w="100%" ml={{ base: 0, md: "200px" }}>
         <Flex justifyContent="space-between" mb={6}>
-          <Heading>Receitas e Despesas</Heading>
+          <Heading>Painel Principal</Heading>
           <Button onClick={toggleColorMode}>{colorMode === "light" ? <FaMoon /> : <FaSun />}</Button>
         </Flex>
 
