@@ -192,7 +192,7 @@ function Orcamento() {
           shadow={shadowColor}
           p="6"
           mb="6"
-
+          overflowX="auto"
         >
           <Heading as="h2" size="md" mb="4">
             Detalhes do Orçamento
@@ -226,6 +226,7 @@ function Orcamento() {
           borderRadius="lg"
           shadow={shadowColor}
           p="6"
+          overflowX="auto"
         >
           <Heading as="h2" size="md" mb="4">
             Gráfico de Orçamento
