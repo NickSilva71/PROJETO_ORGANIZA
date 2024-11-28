@@ -20,7 +20,7 @@ npm install react-bootstrap bootstrap
 
 ### [Chart.js](https://www.chartjs.org/)
 
-> Não utilizada
+> Utilizada
 
 ```bash
 npm install chart.js
