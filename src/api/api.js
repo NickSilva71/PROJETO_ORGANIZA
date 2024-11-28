@@ -36,3 +36,12 @@ export const updateBudget = async (id, data) => {
 export const deleteBudget = async (id) => {
   return await api.delete(`/orcamento/${id}`);
 };
+
+
+export const fetchInvestimentos = async (userId) => {
+  return await api.get(`/investimentos?userId=${userId}`);
+};
+
+export const fetchNotificacoes = async (userId) => {
+  return await api.get(`/notifications?userId=${userId}`);
+};

@@ -122,7 +122,7 @@ function ReceitasDespesas() {
   return (
     <Flex>
       <Sidebar />
-      <Flex direction="column" p={6} ml="200px" w="100%">
+      <Flex direction="column" p={6} ml={{ base: 0, md: "200px" }} w="100%">
         <Flex justifyContent="space-between" mb={6}>
           <Heading>Receitas e Despesas</Heading>
           <Button onClick={toggleColorMode}>{colorMode === "light" ? <FaMoon /> : <FaSun />}</Button>
