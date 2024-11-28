@@ -3,17 +3,16 @@
 import { Flex, SimpleGrid, Card, Heading, Text, IconButton, Button} from "@chakra-ui/react";
 import { FaMoneyBill, FaBuilding, FaPercentage, FaRegClock, FaTrashAlt, FaEdit } from "react-icons/fa";
 
-function toBrl(valor) {
-  return valor.toLocaleString("pt-br", { style: "currency", currency: "BRL" });
-}
 
-const GerarCardsInvestimento = ({arrayInvestimentos, handleDelete, handleEdit}) => {
+const CardInvestimento = ({arrayInvestimentos, handleDelete, handleEdit}) => {
+
   return (
+    
     <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
 
       {arrayInvestimentos.map(investimento => (
         <Card key={investimento.id} p={4} borderWidth={2} borderColor="gray.300" borderRadius="lg" boxShadow="lg">
-          
+
           {/* Corpo do card */}
           <Heading size="md" mb={4}>{investimento.tipo}</Heading>
           <Flex direction="column" gap="2">
@@ -40,4 +39,4 @@ const GerarCardsInvestimento = ({arrayInvestimentos, handleDelete, handleEdit}) 
   )
 }
 
-export default GerarCardsInvestimento;
+export default CardInvestimento;

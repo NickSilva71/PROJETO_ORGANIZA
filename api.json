@@ -66,31 +66,51 @@
       "userId": "2"
     },
     {
-      "id": "7651",
+      "id": "5b0f",
       "tipo": "qualquer coisa",
-      "valor": 323,
+      "valor": 35424,
       "instituicao": "itau",
       "juros": 12,
-      "tempo": 5,
+      "tempo": 2,
       "userId": "1"
     },
     {
-      "id": "15b8",
-      "tipo": "somalia",
-      "valor": 2314,
-      "instituicao": "fedez",
-      "juros": 15,
-      "tempo": 5,
+      "id": "139d",
+      "tipo": "314",
+      "valor": 213,
+      "instituicao": "421",
+      "juros": 12,
+      "tempo": 2,
       "userId": "1"
-    },
+    }
+  ],
+  "orcamento": [
     {
-      "id": "7439",
-      "tipo": "Tesouro Direto",
-      "valor": 3000,
-      "instituicao": "Tesouro Nacional",
-      "juros": 9,
-      "tempo": 5,
-      "userId": "9eb4"
+      "id": "a0b8",
+      "category": "comida",
+      "budget": 213,
+      "actual": 313,
+      "userId": "1"
+    }
+  ],
+  "registros": [
+    {
+      "id": "668a",
+      "tipo": "Receita",
+      "categoria": "Salário",
+      "data": "2024-12-01",
+      "valor": "1600",
+      "descricao": "Trabalho suado",
+      "userId": "1"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "c8b7",
+      "name": "invest",
+      "description": "amanhã",
+      "date": "29/11/2024",
+      "value": "1000000000000",
     },
     {
       "id": "0661",
@@ -108,10 +128,7 @@
       "instituicao": "Banco do Brasil",
       "juros": 2,
       "tempo": 4,
-      "userId": "1"
-    }
-  ],
-  "notifications": [
+    },
     {
       "id": "6493",
       "name": "Transferência para Poupança",
