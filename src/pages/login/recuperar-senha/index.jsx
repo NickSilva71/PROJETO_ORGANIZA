@@ -11,8 +11,6 @@ export default function RecuperarSenha() {
   const [isLoading, setIsLoading] = useState(false);
 
   const toast = useToast();
-  const router = useRouter();
-  const { colorMode, toggleColorMode } = useColorMode();
 
   const links = [
     { name: 'Login', href: '/login' },

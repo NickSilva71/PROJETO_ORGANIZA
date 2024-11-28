@@ -1,68 +1,89 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Heading,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Input,
-  Button,
-  Flex,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import React, { useCallback, useEffect, useState } from "react";
+import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Input, Button, Flex, useColorMode, useColorModeValue, useToast } from "@chakra-ui/react";
 import { Bar } from "react-chartjs-2";
 import Sidebar from "@/components/Sidebar";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from "chart.js";
 import { FaMoon, FaSun } from "react-icons/fa";
+import VerificarAutenticacao from "@/components/VerificarAutenticacao";
+import { createBudget, fetchBudgetData } from "@/api/api";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
-export default function Orcamento() {
+function Orcamento() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const cardBg = useColorModeValue("gray.100", "gray.700");
+  const cardBg = useColorModeValue("gray.50", "gray.700");
   const inputBg = useColorModeValue("white", "gray.800");
   const shadowColor = useColorModeValue("md", "lg-dark");
-  const [budgetData, setBudgetData] = useState([
-    { category: "Alimentação", budget: 500, actual: 300 },
-    { category: "Transporte", budget: 200, actual: 150 },
-    { category: "Lazer", budget: 100, actual: 120 },
-  ]);
 
+  const [budgetData, setBudgetData] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [newBudget, setNewBudget] = useState("");
   const [newActual, setNewActual] = useState("");
+  const toast = useToast();
 
-  const addCategory = () => {
-    if (newCategory && newBudget && newActual) {
-      setBudgetData([
-        ...budgetData,
-        {
-          category: newCategory,
-          budget: parseFloat(newBudget),
-          actual: parseFloat(newActual),
-        },
-      ]);
-      setNewCategory("");
-      setNewBudget("");
-      setNewActual("");
+  const userId = localStorage.getItem("token");
+
+  const showToast = (title, description, status) => {
+    toast({
+      title,
+      description,
+      status,
+      duration: 3000,
+      isClosable: true,
+      icon: <FaExclamationTriangle size="lg" color="yellow" />,
+    });
+  };
+
+  const loadBudgetData = async () => {
+    try {
+      const { data } = await fetchBudgetData(userId);
+      setBudgetData(data);
+    } catch (error) {
+      showToast("Erro ao buscar orçamento", error.message || "Não foi possível conectar ao servidor", "error");
     }
   };
+
+  const addCategory = async () => {
+    if (newCategory && newBudget && newActual) {
+      const newEntry = {
+        category: newCategory,
+        budget: parseFloat(newBudget),
+        actual: parseFloat(newActual),
+        userId
+      };
+
+      try {
+        const { data } = await createBudget(newEntry);
+        setBudgetData((prev) => [...prev, data]);
+        toast({
+          title: "Categoria adicionada com sucesso!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        setNewCategory("");
+        setNewBudget("");
+        setNewActual("");
+      } catch (error) {
+        toast({
+          title: "Erro ao adicionar categoria.",
+          description: "Verifique se o servidor está ativo.",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    loadBudgetData();
+  }, []);
 
   const checkBudgetAlert = (budget, actual) => {
     const percentage = (actual / budget) * 100;
     if (actual > budget) {
-      return "⚠️ Excedeu o orçamento!";
+      return "⚠️ Excedeu";
     } else if (percentage > 80) {
       return "⚠️ Gastos próximos do limite (80%)!";
     } else {
@@ -130,12 +151,14 @@ export default function Orcamento() {
           </Heading>
           <Flex mb="4" gap="4" direction={{ base: "column", md: "row" }}>
             <Input
+              required
               placeholder="Categoria"
               value={newCategory}
               onChange={(e) => setNewCategory(e.target.value)}
               bg={inputBg}
             />
             <Input
+              required
               placeholder="Orçamento (R$)"
               type="number"
               value={newBudget}
@@ -143,6 +166,7 @@ export default function Orcamento() {
               bg={inputBg}
             />
             <Input
+              required
               placeholder="Gasto Real (R$)"
               type="number"
               value={newActual}
@@ -168,12 +192,13 @@ export default function Orcamento() {
           shadow={shadowColor}
           p="6"
           mb="6"
+
         >
           <Heading as="h2" size="md" mb="4">
             Detalhes do Orçamento
           </Heading>
-          <Table variant="simple" size="sm">
-            <Thead>
+          <Table variant="simple" size="sm" maxW="100%">
+            <Thead >
               <Tr>
                 <Th>Categoria</Th>
                 <Th>Orçamento (R$)</Th>
@@ -212,3 +237,5 @@ export default function Orcamento() {
     </Flex>
   );
 }
+
+export default VerificarAutenticacao(Orcamento);
