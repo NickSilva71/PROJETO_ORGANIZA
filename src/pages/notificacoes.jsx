@@ -14,7 +14,7 @@ import BoletoNotification from "@/components/notificacao/Boleto";
 import InvestimentoNotificacion from "@/components/notificacao/Investimento";
 
 export const getStaticProps = async () => {
-  const response = await fetch("http://localhost:8000/dadosUsuarios");
+  const response = await fetch("http://localhost:8000/notifications");
   const data = await response.json();
 
   return {
