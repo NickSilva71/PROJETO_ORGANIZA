@@ -1,7 +1,7 @@
 import { FaPlus, FaMoon, FaSun, FaExclamationTriangle } from "react-icons/fa";
 import { Flex, SimpleGrid, IconButton, Heading, useDisclosure, useColorMode, Button, useColorModeValue, useToast } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import ModalInvestimento from "@/components/investimentos/ModalInvestimento";
 import VerificarAutenticacao from "@/components/VerificarAutenticacao";
 import CardInvestimento from "@/components/investimentos/CardInvestimento";

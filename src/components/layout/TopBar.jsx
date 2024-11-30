@@ -1,13 +1,12 @@
-import { Box, Button, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex} from '@chakra-ui/react';
+import { ColorModeButton, useColorModeValue } from '../ui/color-mode';
+import { color } from "@/styles/theme.js"
 import Link from 'next/link';
-import { FaMoon, FaSun } from 'react-icons/fa';
 
 export default function TopBar({ links }) {
 
-  const { colorMode, toggleColorMode } = useColorMode();
-
   return (
-    <Flex position="absolute" top={0} w="100vw" shadow="md" bg={useColorModeValue('white', 'gray.700')} h={16} align="center" justifyContent="space-between">
+    <Flex position="absolute" top={0} w="100vw" shadow="md" bg={color.subBackground} h={16} align="center" justifyContent="space-between">
 
         <Link href="/">
           <Box fontSize="xl" fontWeight="bold" p={2} ml={4}>
@@ -23,15 +22,13 @@ export default function TopBar({ links }) {
               p={{base: 2, md: 4}}
               m={2}
               rounded="md"
-              bg="WhiteAlfa"
+              bg="transparent"
               _hover={{ bg: "teal.400" }}
               href={link.href}>
               {link.name}
             </Button>
           )}
-          <Button onClick={toggleColorMode}>
-            {colorMode === "light" ? <FaMoon /> : <FaSun />}
-          </Button>
+          <ColorModeButton />
         </Flex>
 
     </Flex>

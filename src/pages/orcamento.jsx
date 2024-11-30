@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Input, Button, Flex, useColorMode, useColorModeValue, useToast } from "@chakra-ui/react";
 import { Bar } from "react-chartjs-2";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from "chart.js";
 import { FaMoon, FaSun } from "react-icons/fa";
 import VerificarAutenticacao from "@/components/VerificarAutenticacao";

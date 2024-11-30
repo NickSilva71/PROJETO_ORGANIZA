@@ -1,7 +1,7 @@
 import { Flex, SimpleGrid, IconButton, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Heading, useDisclosure, useColorMode, Button, useToast } from "@chakra-ui/react";
 import { FaPlus, FaMoon, FaSun } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/layout/Sidebar";
 import CardRegistro from "@/components/receitas/CardRegistro";
 import ModalRegistro from "@/components/receitas/ModalRegistro";
 import ConfirmarDeletar from "@/components/ModalConfirmarDeletar";

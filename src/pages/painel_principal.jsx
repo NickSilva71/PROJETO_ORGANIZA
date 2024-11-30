@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchRegistros, fetchBudgetData } from '@/api/api';
 import { Box, Text, Flex, Heading, Button, useColorMode, Card, CardBody } from '@chakra-ui/react';
 import VerificarAutenticacao from '@/components/VerificarAutenticacao';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '@/components/layout/Sidebar';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Dashboard = () => {

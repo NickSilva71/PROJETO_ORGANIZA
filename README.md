@@ -51,3 +51,11 @@ npm i -g json-server
 - [Josafa Lima](https://github.com/Josafa-Lima)
 - [João Henrique de Oliveira Silva](https://github.com/Joaohenrique1704)
 - Fernando Lucas Souza de Freitas
+
+## Quem faz os commits
+
+Obviamente não tem todos os contribuidores nessa imagem
+
+<a href="https://github.com/NickSilva71/PROJETO_ORGANIZA/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=NickSilva71/PROJETO_ORGANIZA&anon=1" />
+</a>

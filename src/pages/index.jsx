@@ -1,9 +1,11 @@
-import { Box, Button, Container, Flex, Heading, Image as ChakraImage, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Heading, Image as ChakraImage, Stack, Text } from '@chakra-ui/react';
+import { useColorModeValue } from '@/components/ui/color-mode';
 import React from "react";
-import TopBar from '@/components/TopBar';
+import TopBar from '@/components/layout/TopBar';
 import Link from 'next/link';
 
 export default function Home() {
+  const imageSrc = useColorModeValue("/investimentos.png", "/investimentos-dark.png");
 
   const links = [
     { name: 'Login', href: '/login' },
@@ -11,7 +13,7 @@ export default function Home() {
   ];
 
   return (
-    <Box bg={useColorModeValue('gray.50', 'gray.900')} minH="100vh" pt={10}>
+    <Box minH="100vh" pt={10}>
       <TopBar links={links} />
 
       <Container maxW="6xl" py={16}>
@@ -27,10 +29,10 @@ export default function Home() {
             </Text>
 
             <Stack spacing={4} direction="row" >
-              <Button colorScheme="teal" color="white" bg="teal" size="lg" href="/cadastro" as={Link}>
+              <Button colorPalette="teal" color="white" size="lg" href="/cadastro" as={Link}>
                 Comece já
               </Button>
-              <Button colorScheme="gray" size="lg" href="/login" as={Link}>
+              <Button variant="subtle" size="lg" href="/login" as={Link}>
                 Tenho Conta
               </Button>
             </Stack>
@@ -38,7 +40,7 @@ export default function Home() {
           </Stack>
           <Box flex="1" mt={{ base: 8, md: 0 }} textAlign="center">
             <ChakraImage
-              src={useColorModeValue("/investimentos.png", "/investimentos-dark.png")}
+              src={imageSrc}
               alt="Imagem de Investimentos"
               rounded="md"
               shadow="md"
@@ -90,4 +92,3 @@ const FeatureCard = ({ title, description, icon }) => (
     </Text>
   </Box>
 );
-

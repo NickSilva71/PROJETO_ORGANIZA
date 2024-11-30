@@ -1,10 +1,12 @@
 import "@/styles/globals.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ColorModeProvider } from "@/components/ui/color-mode";
+import { Provider, defaultSystem } from "@/components/ui/provider";
+
 
 export default function App({ Component, pageProps }) {
   return (
-    <ChakraProvider>
+    <Provider theme={defaultSystem}>
       <Component {...pageProps} />
-    </ChakraProvider>
+    </Provider>
   );
 }
