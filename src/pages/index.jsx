@@ -20,7 +20,7 @@ export default function Home() {
         <Flex align="center" justify="space-between" direction={{ base: 'column', md: 'row' }}>
 
           <Stack spacing={6} flex="1" maxW="lg">
-            <Heading as="h1" size="2xl" color={useColorModeValue('teal.600', 'teal.400')}>
+            <Heading fontFamily="heading" fontWeight="bold" as="h1" size="2xl" color={useColorModeValue('teal.600', 'teal.400')}>
               Bem-vindo ao ORGANIZA!
             </Heading>
             <Text fontSize="lg" color={useColorModeValue('gray.700', 'gray.300')}>
